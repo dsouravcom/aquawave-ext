@@ -41,34 +41,74 @@ function getFaviconUrl(url) {
     }
 }
 
-// Load data from localStorage or use defaults
+// Load data from Chrome storage or localStorage fallback
 function loadData() {
-    const savedCategories = localStorage.getItem("homepage-categories");
-    const savedSearchEngine = localStorage.getItem("homepage-search-engine");
+    if (typeof chrome !== "undefined" && chrome.storage) {
+        // Use Chrome storage for extension
+        chrome.storage.local.get(
+            ["homepage-categories", "homepage-search-engine"],
+            function (result) {
+                if (result["homepage-categories"]) {
+                    try {
+                        categories = JSON.parse(result["homepage-categories"]);
+                    } catch (e) {
+                        console.error("Error parsing saved categories:", e);
+                    }
+                }
 
-    if (savedCategories) {
-        try {
-            categories = JSON.parse(savedCategories);
-        } catch (e) {
-            console.error("Error parsing saved categories:", e);
-            categories = categories; // fallback to defaults
+                if (
+                    result["homepage-search-engine"] &&
+                    searchEngines[result["homepage-search-engine"]]
+                ) {
+                    currentSearchEngine = result["homepage-search-engine"];
+                }
+
+                renderCategories();
+                updateSearchPlaceholder();
+            }
+        );
+    } else {
+        // Fallback to localStorage for development
+        const savedCategories = localStorage.getItem("homepage-categories");
+        const savedSearchEngine = localStorage.getItem(
+            "homepage-search-engine"
+        );
+
+        if (savedCategories) {
+            try {
+                categories = JSON.parse(savedCategories);
+            } catch (e) {
+                console.error("Error parsing saved categories:", e);
+                categories = categories; // fallback to defaults
+            }
         }
-    }
 
-    if (savedSearchEngine && searchEngines[savedSearchEngine]) {
-        currentSearchEngine = savedSearchEngine;
-    }
+        if (savedSearchEngine && searchEngines[savedSearchEngine]) {
+            currentSearchEngine = savedSearchEngine;
+        }
 
-    renderCategories();
-    updateSearchPlaceholder();
+        renderCategories();
+        updateSearchPlaceholder();
+    }
 }
 
-// Save data to localStorage
+// Save data to Chrome storage or localStorage fallback
 function saveData() {
     try {
-        localStorage.setItem("homepage-categories", JSON.stringify(categories));
+        if (typeof chrome !== "undefined" && chrome.storage) {
+            // Use Chrome storage for extension
+            chrome.storage.local.set({
+                "homepage-categories": JSON.stringify(categories),
+            });
+        } else {
+            // Fallback to localStorage for development
+            localStorage.setItem(
+                "homepage-categories",
+                JSON.stringify(categories)
+            );
+        }
     } catch (e) {
-        console.error("Error saving categories to localStorage:", e);
+        console.error("Error saving categories:", e);
     }
 }
 
@@ -76,7 +116,17 @@ function saveData() {
 function saveSearchEngine() {
     const selectedEngine = document.getElementById("searchEngineSelect").value;
     currentSearchEngine = selectedEngine;
-    localStorage.setItem("homepage-search-engine", selectedEngine);
+
+    if (typeof chrome !== "undefined" && chrome.storage) {
+        // Use Chrome storage for extension
+        chrome.storage.local.set({
+            "homepage-search-engine": selectedEngine,
+        });
+    } else {
+        // Fallback to localStorage for development
+        localStorage.setItem("homepage-search-engine", selectedEngine);
+    }
+
     updateSearchPlaceholder();
 }
 
