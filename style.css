@@ -249,6 +249,15 @@ body::-webkit-scrollbar {
     height: 16px;
     border-radius: 2px;
     flex-shrink: 0;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: transparent;
+    transition: opacity 0.2s ease;
+}
+
+.favicon:not([src]) {
+    display: none;
 }
 
 /* About Button */

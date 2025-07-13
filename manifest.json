@@ -19,7 +19,7 @@
         }
     ],
     "content_security_policy": {
-        "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' https://www.google.com data:;"
+        "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' https://www.google.com https://icons.duckduckgo.com https: data:;"
     },
     "author": "AquaWave Team",
     "homepage_url": "https://github.com/yourusername/aquawave-theme"

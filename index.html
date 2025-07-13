@@ -39,20 +39,16 @@
         </div>
 
         <!-- About Button -->
-        <button
-            class="about-btn"
-            onclick="openAboutModal()"
-            title="About AquaWave"
-        >
+        <button class="about-btn" id="aboutBtn" title="About AquaWave">
             ℹ️
         </button>
 
         <!-- Settings Button -->
-        <button class="settings-btn" onclick="openSettingsModal()">⚙️</button>
+        <button class="settings-btn" id="settingsBtn">⚙️</button>
 
         <!-- Settings Modal -->
         <div class="modal" id="settingsModal">
-            <button class="modal-close-external" onclick="closeSettingsModal()">
+            <button class="modal-close-external" id="settingsModalClose">
                 ✕
             </button>
             <div class="modal-content">
@@ -62,7 +58,7 @@
                 <div class="settings-section">
                     <h4>Categories</h4>
                     <div id="categoriesList"></div>
-                    <button class="save-btn" onclick="toggleAddCategoryForm()">
+                    <button class="save-btn" id="addCategoryBtn">
                         + Add Category
                     </button>
                     <div class="add-form" id="addCategoryForm">
@@ -73,13 +69,10 @@
                             maxlength="20"
                         />
                         <div class="modal-buttons">
-                            <button
-                                class="cancel-btn"
-                                onclick="cancelAddCategory()"
-                            >
+                            <button class="cancel-btn" id="cancelCategoryBtn">
                                 Cancel
                             </button>
-                            <button class="save-btn" onclick="addNewCategory()">
+                            <button class="save-btn" id="saveCategoryBtn">
                                 Add
                             </button>
                         </div>
@@ -90,9 +83,7 @@
                 <div class="settings-section">
                     <h4>Links</h4>
                     <div id="linksList"></div>
-                    <button class="save-btn" onclick="toggleAddLinkForm()">
-                        + Add Link
-                    </button>
+                    <button class="save-btn" id="addLinkBtn">+ Add Link</button>
                     <div class="add-form" id="addLinkForm">
                         <select
                             id="linkCategorySelect"
@@ -128,13 +119,10 @@
                             />
                         </div>
                         <div class="modal-buttons">
-                            <button
-                                class="cancel-btn"
-                                onclick="cancelAddLink()"
-                            >
+                            <button class="cancel-btn" id="cancelLinkBtn">
                                 Cancel
                             </button>
-                            <button class="save-btn" onclick="addNewLink()">
+                            <button class="save-btn" id="saveLinkBtn">
                                 Add
                             </button>
                         </div>
@@ -158,7 +146,6 @@
                                 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
                                 sans-serif;
                         "
-                        onchange="saveSearchEngine()"
                     >
                         <option value="google">Google</option>
                         <option value="bing">Bing</option>
@@ -173,9 +160,7 @@
 
         <!-- About Modal -->
         <div class="modal" id="aboutModal">
-            <button class="modal-close-external" onclick="closeAboutModal()">
-                ✕
-            </button>
+            <button class="modal-close-external" id="aboutModalClose">✕</button>
             <div class="modal-content">
                 <h3>About AquaWave</h3>
 
@@ -258,7 +243,7 @@
                     ></h3>
                     <button
                         class="category-modal-close"
-                        onclick="closeCategoryModal()"
+                        id="categoryModalClose"
                     >
                         ✕
                     </button>
