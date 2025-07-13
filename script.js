@@ -388,6 +388,11 @@ function addNewLink() {
 
     if (!categoryId || !name || !url) return;
 
+    if (!/^https?:\/\//i.test(url)) {
+        alert("Please enter a valid URL starting with http:// or https://");
+        return;
+    }
+
     const category = categories.find((cat) => cat.id === categoryId);
     if (category) {
         category.links.push({ name, url });
@@ -400,6 +405,13 @@ function addNewLink() {
 
 function clearForms() {
     document.getElementById("newCategoryName").value = "";
+    document.getElementById("linkCategorySelect").value = "";
+    document.getElementById("newLinkName").value = "";
+    document.getElementById("newLinkUrl").value = "";
+}
+
+// Clear only link form fields
+function clearLinkForm() {
     document.getElementById("linkCategorySelect").value = "";
     document.getElementById("newLinkName").value = "";
     document.getElementById("newLinkUrl").value = "";

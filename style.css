@@ -287,6 +287,14 @@ body::-webkit-scrollbar {
     transform: scale(1.1);
 }
 
+/* Author link style */
+#author-link {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding-left: 4px;
+}
+
 /* Settings Button */
 .settings-btn {
     position: fixed;
@@ -344,6 +352,7 @@ body::-webkit-scrollbar {
     border: 1px solid rgba(255, 255, 255, 0.1);
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+    font-size: small;
 }
 
 /* Custom Scrollbar for Modal Content */
@@ -626,6 +635,7 @@ select option:checked {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: medium;
 }
 
 .about-section h4 {
