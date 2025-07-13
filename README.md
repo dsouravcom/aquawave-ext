@@ -75,8 +75,7 @@ AquaWave/
 └── 📂 icons/             # Extension icons
     ├── 🖼️ icon16.png
     ├── 🖼️ icon48.png
-    ├── 🖼️ icon128.png
-    └── 🖼️ favicon.ico
+    └── 🖼️ icon128.png
 ```
 
 ### 🎨 Customization

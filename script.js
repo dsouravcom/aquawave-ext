@@ -389,7 +389,14 @@ function addNewLink() {
     if (!categoryId || !name || !url) return;
 
     if (!/^https?:\/\//i.test(url)) {
-        alert("Please enter a valid URL starting with http:// or https://");
+        // Show error styling instead of alert
+        const urlInput = document.getElementById("newLinkUrl");
+        urlInput.style.borderColor = "rgba(220, 38, 38, 0.8)";
+        urlInput.placeholder = "Please enter a valid URL starting with http:// or https://";
+        setTimeout(() => {
+            urlInput.style.borderColor = "rgba(255, 255, 255, 0.2)";
+            urlInput.placeholder = "https://example.com";
+        }, 3000);
         return;
     }
 
