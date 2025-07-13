@@ -83,7 +83,7 @@ body::-webkit-scrollbar {
 
 /* Main Layout */
 .container {
-    max-width: 1200px;
+    max-width: 95%;
     margin: 0 auto;
     padding: 20px;
     position: relative;
@@ -140,10 +140,11 @@ body::-webkit-scrollbar {
 /* Categories */
 .categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
     gap: 30px;
     margin: 50px 0;
-    justify-items: center;
+    width: 100%;
+    justify-content: center;
 }
 
 .category {
@@ -153,8 +154,7 @@ body::-webkit-scrollbar {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.2s ease;
-    width: 100%;
-    max-width: 350px;
+    width: 350px;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -580,6 +580,25 @@ select option:checked {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+    .categories {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    }
+    .category {
+        width: 300px;
+    }
+}
+
+@media (max-width: 900px) {
+    .categories {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+        gap: 25px;
+    }
+    .category {
+        width: 280px;
+    }
+}
+
 @media (max-width: 768px) {
     .time {
         font-size: 2.5rem;
@@ -588,6 +607,11 @@ select option:checked {
     .categories {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+    
+    .category {
+        width: calc(100vw - 60px);
+        max-width: 350px;
     }
 
     .search-bar {

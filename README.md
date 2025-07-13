@@ -1,208 +1,142 @@
-# AquaWave Chrome Extension - Complete Setup Guide
+<div align="center">
+  <img src="icons/icon128.png" width="120" height="120" alt="AquaWave Logo">
+  
+  # AquaWave New Tab
+  
+  *A beautiful, privacy-friendly new tab page with animated waves and customizable categories*
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+  [![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/yourusername/aquawave-theme)
+  
+  
+</div>
 
-## 🚀 Quick Start
+---
 
-Your AquaWave homepage is now a complete Chrome extension! This guide will help you install and use it.
+<div align="center">
+  
+  ## 🚀 Get AquaWave Theme
+  
+  ### 🌐 Available for Multiple Browsers
+  
+  | Browser | Status | Download |
+  |---------|--------|----------|
+  | 🌐 **Chrome** | ✅ Available | [![Chrome Web Store](https://img.shields.io/badge/Chrome-Download%20Now-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore) |
+  | 🦊 **Firefox** | 🔄 Coming Soon | ![Firefox](https://img.shields.io/badge/Firefox-Coming%20Soon-FF7139?style=for-the-badge&logo=firefox&logoColor=white) |
+  | 🌀 **Edge** | 🔄 Coming Soon | ![Edge](https://img.shields.io/badge/Edge-Coming%20Soon-0078D4?style=for-the-badge&logo=microsoft-edge&logoColor=white) |
+  
+  *✨ Transform your new tab experience with elegant waves and personalized organization ✨*
+  
+</div>
 
-## 📁 File Structure
+---
 
-Your extension should have these files:
+## ✨ Features
+
+-   🌊 **Animated Wave Background** - Smooth, mesmerizing wave animations
+-   ⏰ **Live Clock & Date** - Always displays current time and date
+-   🔍 **Multi-Search Support** - Google, Bing, DuckDuckGo, and more
+-   📂 **Custom Categories** - Organize bookmarks your way
+-   🌙 **Dark Theme** - Easy on the eyes
+-   🔒 **Privacy-First** - No tracking, no data collection, fully local storage - **Your data never leaves your device!**
+
+## 👨‍💻 Development
+
+### 📋 Prerequisites
+
+-   🌐 Modern web browser (Chrome/Firefox/Edge)
+-   📚 Basic knowledge of HTML, CSS, JavaScript
+-   💻 Code editor (VS Code recommended)
+
+### 🌐 Chrome/Edge
+
+1. 📥 Download or clone this repository
+2. 🔧 Open `chrome://extensions/` in your browser
+3. 🔘 Enable "Developer mode"
+4. 📁 Click "Load unpacked" and select the extension folder
+5. 🎉 Open a new tab to enjoy AquaWave!
+
+### 🦊 Firefox
+
+1. 🔧 Open `about:debugging` in Firefox
+2. 💻 Click "This Firefox"
+3. 📁 Click "Load Temporary Add-on"
+4. 📄 Select the `manifest.json` file
+
+### 📁 Project Structure
 
 ```
-AquaWave Extension/
-├── manifest.json          # Extension configuration
-├── index.html             # Main homepage
-├── style.css              # All styling
-├── script.js              # Functionality
-├── wave.svg               # Animated background
-├── icons/                 # Extension icons
-│   ├── icon16.png         # 16x16 toolbar icon
-│   ├── icon48.png         # 48x48 management icon
-│   └── icon128.png        # 128x128 store icon
-├── ICON_GUIDE.md          # Icon creation instructions
-└── README.md              # This file
+AquaWave/
+├── 📄 manifest.json       # Extension configuration
+├── 🏠 index.html         # Main new tab page
+├── 🎨 style.css          # Styling and animations
+├── ⚡ script.js          # Core functionality
+├── 🔤 test.woff          # Custom font
+└── 📂 icons/             # Extension icons
+    ├── 🖼️ icon16.png
+    ├── 🖼️ icon48.png
+    ├── 🖼️ icon128.png
+    └── 🖼️ favicon.ico
 ```
 
-## 🎨 Create Extension Icons (Required)
+### 🎨 Customization
 
-**You must create the PNG icons before installing the extension:**
-
-1. Follow the instructions in `ICON_GUIDE.md`
-2. Create three PNG files:
-    - `icons/icon16.png` (16x16 pixels)
-    - `icons/icon48.png` (48x48 pixels)
-    - `icons/icon128.png` (128x128 pixels)
-3. Use the design from `icons/icon.svg` as reference
-
-## 🔧 Installation Methods
-
-### Method 1: Developer Mode (Recommended for personal use)
-
-1. **Open Chrome Extensions Page:**
-
-    - Type `chrome://extensions/` in your address bar
-    - Or go to: Menu → More Tools → Extensions
-
-2. **Enable Developer Mode:**
-
-    - Toggle the "Developer mode" switch in the top-right corner
-
-3. **Load Your Extension:**
-
-    - Click "Load unpacked"
-    - Select your extension folder (the one containing manifest.json)
-    - Click "Select Folder"
-
-4. **Verify Installation:**
-    - Your extension should appear in the extensions list
-    - Open a new tab to see your AquaWave homepage!
-
-### Method 2: Chrome Web Store (For distribution)
-
-1. **Prepare for Upload:**
-
-    - Ensure all PNG icons are created
-    - Test the extension thoroughly
-    - Zip the entire extension folder
-
-2. **Chrome Web Store Process:**
-    - Visit: https://chrome.google.com/webstore/devconsole/
-    - Sign in with your Google account
-    - Pay the $5 one-time developer fee
-    - Upload your ZIP file
-    - Fill out store listing details
-    - Submit for review
-
-## ⚙️ Features
-
-Your AquaWave extension includes:
-
-### 🏠 Homepage Features:
-
--   **Custom New Tab Page** - Replaces Chrome's default new tab
--   **Live Clock & Date** - Always shows current time
--   **Quick Search** - Multiple search engines (Google, Bing, DuckDuckGo, etc.)
--   **Bookmarks Categories** - Organize your favorite links
--   **Add Categories** - Create custom bookmark groups
--   **Animated Background** - Beautiful wave animations
--   **Settings Panel** - Customize search engine preferences
--   **About Modal** - Information about AquaWave theme
-
-### 💾 Data Storage:
-
--   Uses Chrome's storage API for syncing across devices
--   Automatically saves all your categories and links
--   Settings persist between browser sessions
-
-## 🛠️ Customization
-
-### Adding New Search Engines:
-
-Edit `script.js` and add to the `searchEngines` object:
-
-```javascript
-const searchEngines = {
-    // existing engines...
-    newEngine: {
-        name: "New Engine",
-        url: "https://example.com/search?q=",
-    },
-};
-```
-
-### Changing Colors:
-
-Edit the CSS variables in `style.css`:
+Edit CSS variables in `style.css` to change colors:
 
 ```css
 :root {
-    --bg-color: #252934; /* Background */
-    --accent-color: #4fc3f7; /* Blue accent */
-    --text-color: #ffffff; /* Text color */
+    --bg-color: #252934; /* 🌑 Background */
+    --accent-color: #4fc3f7; /* 💎 Blue accent */
+    --text-color: #ffffff; /* 📝 Text color */
+    --wave-color: #4fc3f7; /* 🌊 Wave color */
 }
 ```
 
-### Modifying Categories:
+### 🛠️ Development Setup
 
--   Click the "+" button to add new categories
--   Click on category names to expand and add links
--   Use the settings button for search engine preferences
+1. 🍴 Fork this repository
+2. 📥 Clone your fork locally
+3. 🔧 Make your changes
+4. 🧪 Test in browser
+5. 📤 Submit a pull request
 
-## 🔍 Troubleshooting
+## 📄 License
 
-### Extension Not Loading:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
--   Ensure all required files are present
--   Check that PNG icons exist in the `icons` folder
--   Verify manifest.json syntax is correct
+## 🤝 Contributing
 
-### New Tab Not Changing:
+We welcome contributions! Here's how:
 
--   Disable other new tab extensions
--   Refresh the extension in chrome://extensions/
--   Check if permissions were granted
+1. 🍴 Fork the repository
+2. 🌿 Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. 💾 Commit your changes (`git commit -m '✨ Add amazing feature'`)
+4. 📤 Push to the branch (`git push origin feature/amazing-feature`)
+5. 🔄 Open a Pull Request
 
-### Icons Not Showing:
+### 🐛 Bug Reports
 
--   Create the PNG icon files (see ICON_GUIDE.md)
--   Ensure correct file names and sizes
--   Reload the extension after adding icons
+Found a bug? Please open an issue with:
 
-### Data Not Saving:
+-   📝 Clear description
+-   🔍 Steps to reproduce
+-   🖥️ Browser/OS information
 
--   Check if storage permission is granted
--   Verify Chrome storage API is working
--   Try reloading the extension
+## 🆘 Support
 
-## 🔄 Updates
+Having issues? We're here to help!
 
-To update your extension:
+-   📧 **Email us:** [support@aquawave.com](mailto:hello@dsourav.com)
+-   🐛 [Open an issue](https://github.com/yourusername/aquawave-theme/issues) on GitHub
 
-1. **Developer Mode:**
+**Response time:** We typically respond within 24 hours! 🚀
 
-    - Make changes to files
-    - Go to chrome://extensions/
-    - Click the refresh icon on your extension
+---
 
-2. **Chrome Web Store:**
-    - Update version number in manifest.json
-    - Upload new ZIP file to developer console
-    - Submit for review
-
-## 🎯 Tips for Best Experience
-
-1. **Pin the Extension:**
-
-    - Click the extensions icon in Chrome toolbar
-    - Pin AquaWave for easy access
-
-2. **Organize Your Links:**
-
-    - Create categories for different types of sites
-    - Use descriptive names for easy finding
-
-3. **Backup Your Data:**
-    - Export your categories periodically
-    - Chrome storage syncs across devices automatically
-
-## 📱 Browser Compatibility
-
--   **Chrome**: Full support (recommended)
--   **Edge**: Should work (Chromium-based)
--   **Opera**: Should work (Chromium-based)
--   **Firefox**: Not supported (different extension format)
-
-## 📞 Support
-
-If you encounter issues:
-
-1. Check this README file
-2. Review the troubleshooting section
-3. Verify all files are present and correct
-4. Test in a fresh Chrome profile
-
-## 🎉 Enjoy Your New Homepage!
-
-Your AquaWave extension is now ready to transform your browsing experience. Every new tab will show your beautiful, functional homepage with quick access to your favorite sites and search engines.
-
-Happy browsing! 🌊
+<div align="center">
+  
+  **Made with ❤️ by the [Sourav](https://dsourav.com/github)**
+  
+  ⭐ **If you find this project useful, please give it a star!** ⭐
+  
+</div>
